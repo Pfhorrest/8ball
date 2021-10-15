@@ -1,0 +1,122 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Define theme colors */
+:root {
+	--text-main: #222;
+	--text-inverted: #fff;
+	--accent-neutral: #585858;
+	--accent-positive: #25b8f2;
+	--accent-negative: #f25f25;
+}
+
+body {
+	/* vertically stack and center all direct children of body */
+	display: flex;
+	flex-flow: column nowrap;
+	align-content: center;
+	justify-content: center;
+	min-height: 100vh;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0.5rem;
+	background: black;
+
+	/* default text styles for whole document */
+	color: var(--text-main);
+	font-family: "Josefin Sans";
+	font-size: 20px;
+	text-align: center;
+}
+
+main {
+	max-width: 30em;
+	margin: 0 auto;
+	padding: 1rem;
+	background: white;
+	border-radius: 2em;
+}
+
+h1 {
+	font-size: 60px;
+	margin: 0;
+	margin-bottom: 1rem;
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+}
+
+img#hero {
+	box-sizing: border-box;
+	max-width: 50%;
+}
+
+p {
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.125);
+}
+
+/*Color elements based on whether the response is positive, negative, or neutral */
+.Affirmative { color: var(--accent-positive); }
+.Contrary { color: var(--accent-negative); }
+.Neutral { color: var(--accent-neutral); }
+
+input {
+	/* because inputs often have different text styles by default */
+	font-family: inherit;
+	font-size: inherit;
+	text-align: inherit;
+}
+
+input[type=text] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1em;
+	margin: 1em auto;
+	border-radius: 1em;
+	font-style: italic;
+	color: var(--accent-neutral);
+	border: 3px ridge var(--accent-neutral);
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.25) inset;
+}
+
+input[type=text]:hover, input[type=text]:focus, input[type=text]:active {
+	border-color: var(--accent-positive);
+}
+
+#question-new {
+	margin-top: 0;
+}
+
+input[type=button] {
+	box-sizing: border-box;
+	color: var(--text-inverted);
+	background: black;
+	font-weight: bold;
+	border: 0px solid black;
+	border-radius: 1rem;
+	padding: 1rem 1em;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+}
+
+input[type=button]:hover {
+	cursor: pointer;
+	background: #222;
+	box-shadow: 2px 2px 2px #444 inset, -2px -2px 2px #000 inset, 1px 1px 1px rgba(0,0,0,0.75);
+	text-shadow: 1px 1px 1px #444, -1px -1px 1px #000;
+	transition: background 0.25s, box-shadow 0.25s, text-shadow 0.25s;
+}
+
+.loading {
+	padding: 20%;
+	border-top: 1rem solid var(--accent-positive);
+	border-left: 1rem solid var(--accent-neutral);
+	border-right: 1rem solid var(--accent-neutral);
+	border-bottom: 1rem solid var(--accent-negative);
+	border-radius: 100%;
+	animation: spin 2s ease-in infinite;
+	transition: border 0.1s, padding 100s;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
